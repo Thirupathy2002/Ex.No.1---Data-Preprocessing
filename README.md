@@ -1,7 +1,5 @@
 # Ex.No.1---Data-Preprocessing
-## AIM:
-
-To perform Data preprocessing in a data set downloaded from Kaggle
+## AIM:To perform Data preprocessing in a data set downloaded from Kaggle
 
 ##REQUIPMENTS REQUIRED:
 Hardware – PCs
@@ -23,7 +21,7 @@ For achieving better results from the applied model in Machine Learning projects
 Another aspect is that the data set should be formatted in such a way that more than one Machine Learning and Deep Learning algorithm are executed in one data set, and best out of them is chosen.
 
 
-## ALGORITHM:
+##ALGORITHM:
 Importing the libraries
 Importing the dataset
 Taking care of missing data
@@ -31,11 +29,53 @@ Encoding categorical data
 Normalizing the data
 Splitting the data into test and train
 
-## PROGRAM:
-/Write your code here/
+##PROGRAM:
+### Developed by:thirupathy M
+### Register no:212220040172
+```
+import pandas as pd
+df=pd.read_csv("/content/Churn_Modelling.csv")
+df.head()
+df.isnull().sum()
+df.drop(["RowNumber","Age","Gender","Geography","Surname"],inplace=True,axis=1)
+print(df)
+x=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(x)
+print(y)
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+from sklearn.model_selection import train_test_split
+xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2)
+print(xtrain)
+print(len(xtrain))
+print(xtest)
+print(len(xtest))
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+df1 = sc.fit_transform(df)
+print(df1)
 
-## OUTPUT:
-/ Show the result/
+```
+
+
+
+##OUTPUT:
+![NN1](https://user-images.githubusercontent.com/93427522/191889296-d58e09f3-a16d-469b-9369-301e5480a575.jpg)
+
+![NN2](https://user-images.githubusercontent.com/93427522/191889327-ddc2bebe-c1b6-488e-aa73-c727d8638226.jpg)
+
+![NN3](https://user-images.githubusercontent.com/93427522/191889344-d9cba7b6-2bdd-4f6b-9e6e-2ce5841c14df.jpg)
+
+
+![NN4](https://user-images.githubusercontent.com/93427522/191889358-e315b832-fec5-443b-b2b8-88e49fad77d2.jpg)
+
+
+
+
 
 ## RESULT
-/Type your result here/
+
+Thus the above program for standardizing the given data was implemented successfully.
